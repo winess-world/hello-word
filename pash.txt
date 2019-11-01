@@ -1,0 +1,55 @@
+git config --global user.name +
+在config文件中添加你每次访问默认名字
+git config --global user.email +
+在config文件中添加你每次访问默认邮箱
+git clone +个人github网站的网址
+在config添加每次访问默认url
+git add 文件名
+将文件添加到缓存中去
+git commit -m ""
+将文件更改传上去的备注
+
+git add命令会将工作目录中已修改的文件放到暂存区域，这时如果你又不想下次将这些内容push。那么你可以使用命令git reset HEAD <撤销的文件1> ...来取消暂存
+
+git push origin master将暂存的文件提交
+
+git pull --rebase origin master
+总结：
+1.git pull –rebase 理解
+
+这个命令做了以下内容： 
+a.把你 commit 到本地仓库的内容，取出来放到暂存区(stash)（这时你的工作区是干净的） 
+b.然后从远端拉取代码到本地，由于工作区是干净的，所以不会有冲突 
+c.从暂存区把你之前提交的内容取出来，跟拉下来的代码合并
+
+所以 rebase 在拉代码前要确保你本地工作区是干净的，如果你本地修改的内容没完全 commit 或者 stash，就会 rebase 失败。
+
+还是要听 git 提示的话，要理智，有什么不清楚的，就输入
+git status
+
+根据人家提示的来，该提交的提交，stash 的 stash。
+
+删除文件后需要 git add -A, 光 git add. 不行，区别如下：
+git add 的几种参数区别
+
+git add -A 保存所有的修改 
+git add . 保存新的添加和修改，但是不包括删除 
+git add -u 保存修改和删除，但是不包括新建文件。
+
+常见异常
+error: failed to push some refs to 'https://github.com/winess-world/hello-word'
+问题原因：远程库与本地库不一致造成的，在hint中也有提示把远程库同步到本地库就可以了。
+解决办法：使用命令行：
+git pull --rebase origin master
+该命令的意思是把远程库中的更新合并到（pull=fetch+merge）本地库中，–-rebase的作用是取消掉本地库中刚刚的commit，并把他们接到更新后的版本库之中。出现如下图执行pull执行成功后，可以成功执行git push origin master操作。
+git 执行git pull –rebase报错误如下： 
+
+error: Cannot pull with rebase: You have unstaged changes. 
+error: Additionally, your index contains uncommitted changes. 
+原因：如果有未提交的更改，是不能git pull的
+解决： 
+先执行git stash 
+再执行git pull –rebase 
+最后再执行git stash pop
+git stash #可用来暂存当前正在进行的工作 
+git stash pop #从Git栈中读取最近一次保存的内容
