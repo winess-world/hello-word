@@ -1,0 +1,38 @@
+C:\Users\no later>ssh
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]
+
+C:\Users\no later>scp
+usage: scp [-346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]
+           [-l limit] [-o ssh_option] [-P port] [-S program] source ... target
+
+C:\Users\no later>ping 192.168.56.100
+
+正在 Ping 192.168.56.100 具有 32 字节的数据:
+来自 192.168.56.100 的回复: 字节=32 时间<1ms TTL=64
+来自 192.168.56.100 的回复: 字节=32 时间<1ms TTL=64
+来自 192.168.56.100 的回复: 字节=32 时间<1ms TTL=64
+来自 192.168.56.100 的回复: 字节=32 时间=1ms TTL=64
+
+192.168.56.100 的 Ping 统计信息:
+    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 0ms，最长 = 1ms，平均 = 0ms
+
+C:\Users\no later>scp -r B:\java.linux\* root@192.168.56.100:~
+The authenticity of host '192.168.56.100 (192.168.56.100)' can't be established.
+ECDSA key fingerprint is SHA256:sM+9EkH2rdb7Akhg9w0dRo0hfsKZGpjdnFF63oTUNeA.
+Are you sure you want to continue connecting (yes/no)?
+Warning: Permanently added '192.168.56.100' (ECDSA) to the list of known hosts.
+root@192.168.56.100's password:
+jdk-8u191-linux-x64.tar.gz                                                            100%  183MB  30.5MB/s   00:06
+
+C:\Users\no later>scp -r B:\java.linux\* root@192.168.56.100:~
+root@192.168.56.100's password:
+hadoop-2.9.2.tar.gz                                                                   100%  349MB  58.9MB/s   00:05
+jdk-8u191-linux-x64.tar.gz                                                            100%  183MB  33.0MB/s   00:05
